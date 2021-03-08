@@ -1,0 +1,61 @@
+﻿@model prueba1.Models.Profesor
+
+@{
+    ViewBag.Title = "Reporte";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Reporte de profesor</h2>
+
+<table class="table table-striped table-bordered display dataTable" style="color:steelblue">
+    <tr>
+        <th>
+            Nombre del profesor
+        </th>
+        <th>
+            Apellido del profesor
+        </th>
+        <th>
+            Rol
+        </th>
+        <th>
+            Nombre de usuario
+        </th>
+        <th>
+            Correo de electrónico
+        </th>
+        <th>
+            Estado del profesor
+        </th>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => Model.nombreProfesor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.apellidoProfesor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.rol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.nombreUsuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.emailProfesor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.estado)
+        </td>
+    </tr>
+</table>
+
+
+<div class="form-group">
+    <div> <a href="@Url.Action("createReport", new {tipo="Excel", id=Model.idProfesor})"> Descargar reporte como documento de Excel </a> </div>
+    <div> <a href="@Url.Action("createReport", new {tipo="Word", id=Model.idProfesor})"> Descargar reporte como documento de Word </a> </div>
+</div>
+<br />
+<div>
+    @Html.ActionLink("Volver a la lista", "Index")
+</div>

@@ -1,0 +1,57 @@
+﻿@model prueba1.Models.Comentario
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>¿Seguro que desea eliminar este comentario?</h3>
+<div>
+    <h4>Comentario</h4>
+    <hr />
+    <div class="row small-spacingr" style="margin-left: 35vh;">
+        <div class="col-lg-10 col-xs-12">
+            <div class="box-content card white">
+                <dl class="dl-horizontal">
+                    <dt>
+                        Fecha
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.fecha)
+                    </dd>
+
+                    <dt>
+                        Contenido
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.contenido)
+                    </dd>
+
+                    <dt>
+                        Proyecto
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Proyecto.nombreProyecto)
+                    </dd>
+
+                </dl>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Eliminar" class="btn btn-danger" style="background-color:navy" /> 
+                    </div>
+                    <div>
+                        @Html.ActionLink("Volver a la lista", "Index")
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

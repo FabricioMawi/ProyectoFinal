@@ -1,0 +1,80 @@
+﻿@model IEnumerable<prueba1.Models.Profesor>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Profesores</h2>
+
+
+@using (Html.BeginForm())
+{
+    <p>
+         @Html.TextBox("SearchString")
+        <input type="submit" value="Buscar" class="btn btn-primary btn-sm" style="background-color:navy" />
+    </p>
+}
+<p>
+    @Html.ActionLink("Agregar ", "Create")
+</p>
+<div class="row justify-content-center">
+    <table class="table table-striped table-bordered display dataTable" style="color:steelblue">
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Apellido
+            </th>
+            <th>
+                Rol
+            </th>
+            <th>
+                Contraseña
+            </th>
+            <th>
+                Nombre de usuario
+            </th>
+            <th>
+                Correo electrónico
+            </th>
+            <th>
+                Estado
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombreProfesor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.apellidoProfesor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.rol)
+                </td>
+                <td>
+                    Información privada
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombreUsuario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.emailProfesor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.estado)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.idProfesor }) |
+                    @Html.ActionLink("Ver contenido", "Details", new { id = item.idProfesor }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.idProfesor })
+                </td>
+            </tr>
+        }
+
+    </table>
+   
+</div>

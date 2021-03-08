@@ -1,0 +1,104 @@
+﻿@model prueba1.Models.Profesor
+
+@{
+    ViewBag.Title = "Create";
+}
+
+    <h2>Nuevo profesor</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+<div class="row small-spacingr" style="margin-left: 35vh;">
+    <div class="col-lg-10 col-xs-12">
+        <div class="box-content card white">
+            <div class="card-content">
+                <h4>Profesor</h4>
+                <h6>*Los campos marcados con un asterisco son obligatorios</h6>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label for="nombre">Nombre del profesor*</label>
+                    <div class="col-sm-12">
+                        @Html.EditorFor(model => model.nombreProfesor, new { htmlAttributes = new { @class = "form-control", placeholder = "Ingrese nombre", id = "nombre" } })
+                        @Html.ValidationMessageFor(model => model.nombreProfesor, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="hola">Apellido del profesor*</label>
+                    <div class="col-sm-12">
+                        @Html.EditorFor(model => model.apellidoProfesor, new { htmlAttributes = new { @class = "form-control", placeholder = "Ingrese apellido", id = "apellido" } })
+                        @Html.ValidationMessageFor(model => model.apellidoProfesor, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label>Nombre de usuario*</label>
+                    <div class="col-sm-12">
+                        @Html.EditorFor(model => model.nombreUsuario, new { htmlAttributes = new { @class = "form-control", placeholder = "Ingrese nombre de usuario" } })
+                        @Html.ValidationMessageFor(model => model.nombreUsuario, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Rol del usuario*</label>
+                    <div class="col-sm-12">
+
+
+                        @Html.DropDownListFor(model => model.rol, new SelectListItem[]
+                 {
+                     new SelectListItem() {Text = "Profesor" , Value = "Profesor"},
+                     new SelectListItem() {Text = "Administrador" , Value = "Administrador"}
+                 }, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.rol, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Correo electrónico*</label>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.emailProfesor, new { htmlAttributes = new { @class = "form-control", placeholder = "Ingrese correo electronico" } })
+                        @Html.ValidationMessageFor(model => model.emailProfesor, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Estado del usuario*</label>
+                    <div class="col-md-12">
+
+
+                        @Html.DropDownListFor(model => model.estado, new SelectListItem[]
+                 {
+                     new SelectListItem() {Text = "Activo" , Value = "Activo"},
+                     new SelectListItem() {Text = "Inactivo" , Value = "Inactivo"}
+                 }, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.estado, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="form-group" style="padding: 5vh;">
+                <div class="col-md-offset-4 col-md-12">
+                    <input type="submit" value="Agregar" class="btn btn-primary" style="background-color:navy"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="big mb-1" style="color: red;">
+    @ViewBag.Error
+</div>
+}
+
+<div>
+    @Html.ActionLink("Volver a la lista", "Index")
+</div>

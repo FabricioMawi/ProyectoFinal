@@ -1,0 +1,121 @@
+﻿@model prueba1.Models.Proyecto
+
+@{
+    ViewBag.Title = "Crear";
+}
+
+<h2>Nuevo proyecto</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="row">
+    <div class="col-lg-10 col-xs-12" style="margin-left: 10vh;">
+        <div class="box-content card white">
+            <div class="card-content">
+                <h4>Proyecto</h4>
+                <h6>*Los campos marcados con un asterisco son obligatorios</h6>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label for="nombre">Nombre del proyecto*</label>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.nombreProyecto, new { htmlAttributes = new { @class = "form-control", placeholder = "Ingrese nombre del Proyecto" } })
+                        @Html.ValidationMessageFor(model => model.nombreProyecto, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Contacto</label>
+                    <div class="col-md-12">
+                        @Html.DropDownList("idContacto", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.idContacto, "", new { @class = "text-danger" })
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-group">
+                    <label>Curso*</label>
+                    <div class="col-md-12">
+                        @Html.DropDownList("idCurso", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.idCurso, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="nombre">Tecnología a utilizar*</label>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.tecnologia, new { htmlAttributes = new { @class = "form-control", placeholder = "Ingrese tecnologias" } })
+                        @Html.ValidationMessageFor(model => model.tecnologia, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="nombre">Profesor*</label>
+                    <div class="col-md-12">
+                        @Html.DropDownList("idProfesor", ViewBag.idProyecto as SelectList, "--Seleccione un Profesor--", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.idProfesor, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="nombre">Grupo*</label>
+                    <div class="col-md-12">
+                        @Html.DropDownList("idGrupo", null, htmlAttributes: new { @class = "form-control", })
+                        @Html.ValidationMessageFor(model => model.idGrupo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Estado del proyecto*</label>
+                    <div class="col-md-12">
+
+
+                        @Html.DropDownListFor(model => model.estadoProyecto, new SelectListItem[]
+                 {
+                     new SelectListItem() {Text = "Activo" , Value = "Activo"},
+                     new SelectListItem() {Text = "En Proceso" , Value = "En Proceso"},
+                     new SelectListItem() {Text = "Desertado" , Value = "Desertado"},
+                     new SelectListItem() {Text = "Implantado" , Value = "Implantado"}
+                 }, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.estadoProyecto, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Fecha de inicio*</label>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.fechaInicio, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.fechaInicio, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Fecha de finalización</label>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.fechaFinalizado, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.fechaFinalizado, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-12">
+                        <input type="submit" value="Agregar" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        }
+
+
+        <div>
+            @Html.ActionLink("Volver a la lista", "Index")
+        </div>

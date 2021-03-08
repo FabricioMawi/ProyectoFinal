@@ -1,0 +1,81 @@
+﻿@model prueba1.Models.Empresa
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Nueva empresa</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="row small-spacingr" style="margin-left: 35vh;">
+    <div class="col-lg-10 col-xs-12">
+        <div class="box-content card white">
+            <div class="card-content">
+                <h4>Empresa</h4>
+                <h6>*Los campos marcados con un asterisco son obligatorios</h6>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <div class="col-sm-12">
+                        @Html.EditorFor(model => model.nombreEmpresa, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.nombreEmpresa, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Contacto</label>
+                    <div class="col-sm-12">
+                        @Html.EditorFor(model => model.nombreContacto, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.nombreContacto, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Número de teléfono*</label>
+                    <div class="col-sm-12">
+                        @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Correo electrónico*</label>
+                    <div class="col-sm-12">
+                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Tipo de empresa</label>
+                    <div class="col-md-12">
+                        @Html.DropDownListFor(model => model.tipoEmpresa, new SelectListItem[]
+                        {
+                            new SelectListItem() {Text = "Pública" , Value = "Pública"},
+                            new SelectListItem() {Text = "Privada" , Value = "Privada"},
+                            new SelectListItem() {Text = "Pyme" , Value = "Pyme"},
+                            new SelectListItem() {Text = "Empresario autónomo" , Value = "Empresario autónomo"}
+                        }, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.tipoEmpresa, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" style="padding: 5vh;">
+                <div class="col-md-offset-4 col-md-12">
+                    <input type="submit" value="Agregar" class="btn btn-primary" style="background-color:navy" />
+                </div>
+            </div>
+                
+            </div>
+        </div>
+    </div>
+    }
+
+    <div>
+        @Html.ActionLink("Volver a la lista", "Index")
+    </div>

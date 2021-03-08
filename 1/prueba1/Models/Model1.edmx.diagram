@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="26cbbddbdf8d41eab37516d6979162b7" Name="Diagram1">
+        <EntityTypeShape EntityType="BD_SistemaProyectosGraduacionModel.Archivo1" Width="1.5" PointX="12.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_SistemaProyectosGraduacionModel.Archivo2" Width="1.5" PointX="12.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_SistemaProyectosGraduacionModel.Archivo3" Width="1.5" PointX="12.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_SistemaProyectosGraduacionModel.Auditoria" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_SistemaProyectosGraduacionModel.CatalogoEntregable" Width="1.5" PointX="8.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_SistemaProyectosGraduacionModel.Comentario" Width="1.5" PointX="12.75" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_SistemaProyectosGraduacionModel.Curso" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_SistemaProyectosGraduacionModel.Empresa" Width="1.5" PointX="8.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_SistemaProyectosGraduacionModel.Estudiante" Width="1.5" PointX="7.5" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_SistemaProyectosGraduacionModel.Grupo" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_SistemaProyectosGraduacionModel.Profesor" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_SistemaProyectosGraduacionModel.Proyecto" Width="1.5" PointX="10.5" PointY="10.875" IsExpanded="true" />
+        <AssociationConnector Association="BD_SistemaProyectosGraduacionModel.FK__Archivo1__idProy__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_SistemaProyectosGraduacionModel.FK__Archivo2__idProy__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_SistemaProyectosGraduacionModel.FK__Archivo3__idProy__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_SistemaProyectosGraduacionModel.FK__Comentari__idPro__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_SistemaProyectosGraduacionModel.FK__Grupo__idCurso__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_SistemaProyectosGraduacionModel.FK__Proyecto__idCurs__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_SistemaProyectosGraduacionModel.FK__Proyecto__idCont__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_SistemaProyectosGraduacionModel.FK__Estudiant__idGru__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_SistemaProyectosGraduacionModel.FK__Estudiant__idPro__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_SistemaProyectosGraduacionModel.FK__Grupo__idProfeso__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_SistemaProyectosGraduacionModel.FK__Proyecto__idGrup__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_SistemaProyectosGraduacionModel.FK__Proyecto__idProf__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_SistemaProyectosGraduacionModel.Entregable_Proyecto" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_SistemaProyectosGraduacionModel.Profesor_Curso" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+    <div class="jumbotron" style="text-align:center">
+        <h1>Bienvenido @Session["Nombre"] </h1>
+        
+    
+    
+    </div>
+
+    <div class="row" >
+        <div class="col-md-4" >
+            <h2>Proyectos</h2>
+
+            <p><a class="btn btn-default" style="background-color:navy; color:white" href="~/Proyectoes">Ver Proyectos &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Comentarios</h2>
+
+            <p><a class="btn btn-default"style="background-color:navy; color:white" href="~/Comentarios">Ver Comentarios &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Empresas</h2>
+
+            <p><a class="btn btn-default" style="background-color:navy; color:white" href="~/Empresas">Ver Empresas &raquo;</a></p>
+        </div>
+
+
+    </div>

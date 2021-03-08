@@ -1,0 +1,53 @@
+﻿@model IEnumerable<prueba1.Models.Estudiante>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Estudiantes</h2>
+
+
+<p>
+    @Html.ActionLink("Agregar", "Create")
+</p>
+<table class="table table-striped table-bordered display dataTable" style="color:steelblue">
+    <tr>
+        <th>
+            Nombre del estudiante
+        </th>
+        <th>
+            Nota
+        </th>
+        <th>
+            Grupo
+        </th>
+        <th>
+            Profesor
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombreEstudiante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grupo.nombreGrupo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Profesor.nombreProfesor)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idEstudiante }) |
+                @Html.ActionLink("Ver", "Details", new { id = item.idEstudiante }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.idEstudiante })
+            </td>
+        </tr>
+    }
+
+</table>

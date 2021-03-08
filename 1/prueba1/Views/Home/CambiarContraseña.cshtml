@@ -1,0 +1,44 @@
+﻿@model prueba1.Models.Profesor
+
+@{
+    ViewBag.Title = "CambiarContraseña";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container" style="width:100vh">
+    @{
+        if (!string.IsNullOrEmpty(ViewBag.Message))
+        {
+            <div class="alert alert-warning"> @ViewBag.Message </div>
+        }
+    }
+    <form action="~/Home/CambiarContraseña" method="post" class="frm-single">
+
+
+        <div class="inside">
+          
+
+                <div class="frm-title">Ingresa tu nueva contraseña</div>
+
+                <div class="frm-input"><input type="text" name="contrasena" value="" placeholder="Nueva Contraseña" class="frm-inp"><i class="fa fa-history frm-ico"></i></div>
+
+                <div class="medium" style="color: red;">
+                    @ViewBag.Error
+                </div>
+                <button type="submit" class="frm-submit">Cambiar<i class="fa fa-arrow-circle-right"></i></button>
+
+                <div class="form-group mt-2 ml-10" style="text-align:center;">
+                    @Html.ActionLink("Volver al Inicio", "Index")
+
+
+                </div>
+            </div>
+      
+
+
+    </form>
+
+</div>
+
+

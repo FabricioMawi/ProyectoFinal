@@ -1,0 +1,1237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BD_SistemaProyectosGraduacionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Archivo1">
+          <Key>
+            <PropertyRef Name="idArchivo" />
+          </Key>
+          <Property Name="idArchivo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreArchivo" Type="varchar(max)" Nullable="false" />
+          <Property Name="tipoContenido" Type="varchar(max)" Nullable="false" />
+          <Property Name="contenidoArchivo" Type="varbinary(max)" Nullable="false" />
+          <Property Name="idProyecto" Type="int" Nullable="false" />
+          <Property Name="documentos" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Archivo2">
+          <Key>
+            <PropertyRef Name="idArchivo" />
+          </Key>
+          <Property Name="idArchivo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreArchivo" Type="varchar(max)" Nullable="false" />
+          <Property Name="tipoContenido" Type="varchar(max)" Nullable="false" />
+          <Property Name="contenidoArchivo" Type="varbinary(max)" Nullable="false" />
+          <Property Name="idProyecto" Type="int" Nullable="false" />
+          <Property Name="documentos" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Archivo3">
+          <Key>
+            <PropertyRef Name="idArchivo" />
+          </Key>
+          <Property Name="idArchivo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreArchivo" Type="varchar(max)" Nullable="false" />
+          <Property Name="tipoContenido" Type="varchar(max)" Nullable="false" />
+          <Property Name="contenidoArchivo" Type="varbinary(max)" Nullable="false" />
+          <Property Name="idProyecto" Type="int" Nullable="false" />
+          <Property Name="documentos" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Auditoria">
+          <Key>
+            <PropertyRef Name="idAuditoria" />
+          </Key>
+          <Property Name="idAuditoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usuario" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="nombreTabla" Type="varchar" MaxLength="90" Nullable="false" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="tipoCambio" Type="varchar" MaxLength="90" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatalogoEntregable">
+          <Key>
+            <PropertyRef Name="idEntregable" />
+          </Key>
+          <Property Name="idEntregable" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreEntregable" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="nombreCurso" Type="varchar" MaxLength="35" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comentario">
+          <Key>
+            <PropertyRef Name="idComentario" />
+          </Key>
+          <Property Name="idComentario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="contenido" Type="varchar" MaxLength="400" Nullable="false" />
+          <Property Name="idProyecto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Curso">
+          <Key>
+            <PropertyRef Name="idCurso" />
+          </Key>
+          <Property Name="idCurso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreCurso" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="idContacto" />
+          </Key>
+          <Property Name="idContacto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreEmpresa" Type="varchar" MaxLength="30" />
+          <Property Name="nombreContacto" Type="varchar" MaxLength="50" />
+          <Property Name="telefono" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="90" Nullable="false" />
+          <Property Name="tipoEmpresa" Type="varchar" MaxLength="90" />
+        </EntityType>
+        <EntityType Name="Entregable_Proyecto">
+          <Key>
+            <PropertyRef Name="idProyecto" />
+            <PropertyRef Name="idEntregable" />
+          </Key>
+          <Property Name="idProyecto" Type="int" Nullable="false" />
+          <Property Name="idEntregable" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Estudiante">
+          <Key>
+            <PropertyRef Name="idEstudiante" />
+          </Key>
+          <Property Name="idEstudiante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreEstudiante" Type="varchar" MaxLength="110" Nullable="false" />
+          <Property Name="idGrupo" Type="int" />
+          <Property Name="idProfesor" Type="int" />
+          <Property Name="nota" Type="int" />
+        </EntityType>
+        <EntityType Name="Grupo">
+          <Key>
+            <PropertyRef Name="idGrupo" />
+          </Key>
+          <Property Name="idGrupo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreGrupo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="idProfesor" Type="int" Nullable="false" />
+          <Property Name="sede" Type="varchar" MaxLength="50" />
+          <Property Name="idCurso" Type="int" Nullable="false" />
+          <Property Name="cuatrimestre" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Profesor">
+          <Key>
+            <PropertyRef Name="idProfesor" />
+          </Key>
+          <Property Name="idProfesor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreProfesor" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="apellidoProfesor" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rol" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="contrasena" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="nombreUsuario" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="emailProfesor" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="9" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Profesor_Curso">
+          <Key>
+            <PropertyRef Name="idProfesor" />
+            <PropertyRef Name="idCurso" />
+          </Key>
+          <Property Name="idProfesor" Type="int" Nullable="false" />
+          <Property Name="idCurso" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Proyecto">
+          <Key>
+            <PropertyRef Name="idProyecto" />
+          </Key>
+          <Property Name="idProyecto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreProyecto" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="idContacto" Type="int" />
+          <Property Name="idCurso" Type="int" Nullable="false" />
+          <Property Name="tecnologia" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="idProfesor" Type="int" Nullable="false" />
+          <Property Name="idGrupo" Type="int" Nullable="false" />
+          <Property Name="estadoProyecto" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="fechaInicio" Type="date" Nullable="false" />
+          <Property Name="fechaFinalizado" Type="date" />
+        </EntityType>
+        <Association Name="FK__Archivo1__idProy__48CFD27E">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="Archivo1" Type="Self.Archivo1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="idProyecto" />
+            </Principal>
+            <Dependent Role="Archivo1">
+              <PropertyRef Name="idProyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Archivo2__idProy__4BAC3F29">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="Archivo2" Type="Self.Archivo2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="idProyecto" />
+            </Principal>
+            <Dependent Role="Archivo2">
+              <PropertyRef Name="idProyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Archivo3__idProy__4E88ABD4">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="Archivo3" Type="Self.Archivo3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="idProyecto" />
+            </Principal>
+            <Dependent Role="Archivo3">
+              <PropertyRef Name="idProyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Comentari__idPro__45F365D3">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="Comentario" Type="Self.Comentario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="idProyecto" />
+            </Principal>
+            <Dependent Role="Comentario">
+              <PropertyRef Name="idProyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Entregabl__idEnt__5812160E">
+          <End Role="CatalogoEntregable" Type="Self.CatalogoEntregable" Multiplicity="1" />
+          <End Role="Entregable_Proyecto" Type="Self.Entregable_Proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatalogoEntregable">
+              <PropertyRef Name="idEntregable" />
+            </Principal>
+            <Dependent Role="Entregable_Proyecto">
+              <PropertyRef Name="idEntregable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Entregabl__idPro__571DF1D5">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="Entregable_Proyecto" Type="Self.Entregable_Proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="idProyecto" />
+            </Principal>
+            <Dependent Role="Entregable_Proyecto">
+              <PropertyRef Name="idProyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estudiant__idGru__5AEE82B9">
+          <End Role="Grupo" Type="Self.Grupo" Multiplicity="0..1" />
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupo">
+              <PropertyRef Name="idGrupo" />
+            </Principal>
+            <Dependent Role="Estudiante">
+              <PropertyRef Name="idGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estudiant__idPro__5BE2A6F2">
+          <End Role="Profesor" Type="Self.Profesor" Multiplicity="0..1" />
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profesor">
+              <PropertyRef Name="idProfesor" />
+            </Principal>
+            <Dependent Role="Estudiante">
+              <PropertyRef Name="idProfesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Grupo__idCurso__3D5E1FD2">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+          <End Role="Grupo" Type="Self.Grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="idCurso" />
+            </Principal>
+            <Dependent Role="Grupo">
+              <PropertyRef Name="idCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Grupo__idProfeso__3C69FB99">
+          <End Role="Profesor" Type="Self.Profesor" Multiplicity="1" />
+          <End Role="Grupo" Type="Self.Grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profesor">
+              <PropertyRef Name="idProfesor" />
+            </Principal>
+            <Dependent Role="Grupo">
+              <PropertyRef Name="idProfesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Profesor___idCur__52593CB8">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+          <End Role="Profesor_Curso" Type="Self.Profesor_Curso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="idCurso" />
+            </Principal>
+            <Dependent Role="Profesor_Curso">
+              <PropertyRef Name="idCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Profesor___idPro__5165187F">
+          <End Role="Profesor" Type="Self.Profesor" Multiplicity="1" />
+          <End Role="Profesor_Curso" Type="Self.Profesor_Curso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profesor">
+              <PropertyRef Name="idProfesor" />
+            </Principal>
+            <Dependent Role="Profesor_Curso">
+              <PropertyRef Name="idProfesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proyecto__idCont__403A8C7D">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="idContacto" />
+            </Principal>
+            <Dependent Role="Proyecto">
+              <PropertyRef Name="idContacto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proyecto__idCurs__412EB0B6">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="idCurso" />
+            </Principal>
+            <Dependent Role="Proyecto">
+              <PropertyRef Name="idCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proyecto__idGrup__4316F928">
+          <End Role="Grupo" Type="Self.Grupo" Multiplicity="1" />
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupo">
+              <PropertyRef Name="idGrupo" />
+            </Principal>
+            <Dependent Role="Proyecto">
+              <PropertyRef Name="idGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proyecto__idProf__4222D4EF">
+          <End Role="Profesor" Type="Self.Profesor" Multiplicity="1" />
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profesor">
+              <PropertyRef Name="idProfesor" />
+            </Principal>
+            <Dependent Role="Proyecto">
+              <PropertyRef Name="idProfesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="selectComentarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idProyecto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="selectCurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idProyecto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="selectCursoTodo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="selectEmpresaTodo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="selectEstudiante" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idProfesor" Type="int" Mode="In" />
+        </Function>
+        <Function Name="selectGrupo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idProyecto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="selectGrupo1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idProfesor" Type="int" Mode="In" />
+        </Function>
+        <Function Name="selectProfesor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idProyecto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="selectProfesor1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idProfesor" Type="int" Mode="In" />
+        </Function>
+        <Function Name="selectProfesorTodo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="selectProyecto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idProyecto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="selectProyecto1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idProfesor" Type="int" Mode="In" />
+        </Function>
+        <Function Name="selectProyectoTodo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="BD_SistemaProyectosGraduacionModelStoreContainer">
+          <EntitySet Name="Archivo1" EntityType="Self.Archivo1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Archivo2" EntityType="Self.Archivo2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Archivo3" EntityType="Self.Archivo3" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Auditoria" EntityType="Self.Auditoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatalogoEntregable" EntityType="Self.CatalogoEntregable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comentario" EntityType="Self.Comentario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Curso" EntityType="Self.Curso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Entregable_Proyecto" EntityType="Self.Entregable_Proyecto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estudiante" EntityType="Self.Estudiante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grupo" EntityType="Self.Grupo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profesor" EntityType="Self.Profesor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profesor_Curso" EntityType="Self.Profesor_Curso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proyecto" EntityType="Self.Proyecto" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Archivo1__idProy__48CFD27E" Association="Self.FK__Archivo1__idProy__48CFD27E">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="Archivo1" EntitySet="Archivo1" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Archivo2__idProy__4BAC3F29" Association="Self.FK__Archivo2__idProy__4BAC3F29">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="Archivo2" EntitySet="Archivo2" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Archivo3__idProy__4E88ABD4" Association="Self.FK__Archivo3__idProy__4E88ABD4">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="Archivo3" EntitySet="Archivo3" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Comentari__idPro__45F365D3" Association="Self.FK__Comentari__idPro__45F365D3">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="Comentario" EntitySet="Comentario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Entregabl__idEnt__5812160E" Association="Self.FK__Entregabl__idEnt__5812160E">
+            <End Role="CatalogoEntregable" EntitySet="CatalogoEntregable" />
+            <End Role="Entregable_Proyecto" EntitySet="Entregable_Proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Entregabl__idPro__571DF1D5" Association="Self.FK__Entregabl__idPro__571DF1D5">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="Entregable_Proyecto" EntitySet="Entregable_Proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estudiant__idGru__5AEE82B9" Association="Self.FK__Estudiant__idGru__5AEE82B9">
+            <End Role="Grupo" EntitySet="Grupo" />
+            <End Role="Estudiante" EntitySet="Estudiante" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estudiant__idPro__5BE2A6F2" Association="Self.FK__Estudiant__idPro__5BE2A6F2">
+            <End Role="Profesor" EntitySet="Profesor" />
+            <End Role="Estudiante" EntitySet="Estudiante" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Grupo__idCurso__3D5E1FD2" Association="Self.FK__Grupo__idCurso__3D5E1FD2">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Grupo" EntitySet="Grupo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Grupo__idProfeso__3C69FB99" Association="Self.FK__Grupo__idProfeso__3C69FB99">
+            <End Role="Profesor" EntitySet="Profesor" />
+            <End Role="Grupo" EntitySet="Grupo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Profesor___idCur__52593CB8" Association="Self.FK__Profesor___idCur__52593CB8">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Profesor_Curso" EntitySet="Profesor_Curso" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Profesor___idPro__5165187F" Association="Self.FK__Profesor___idPro__5165187F">
+            <End Role="Profesor" EntitySet="Profesor" />
+            <End Role="Profesor_Curso" EntitySet="Profesor_Curso" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proyecto__idCont__403A8C7D" Association="Self.FK__Proyecto__idCont__403A8C7D">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Proyecto" EntitySet="Proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proyecto__idCurs__412EB0B6" Association="Self.FK__Proyecto__idCurs__412EB0B6">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Proyecto" EntitySet="Proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proyecto__idGrup__4316F928" Association="Self.FK__Proyecto__idGrup__4316F928">
+            <End Role="Grupo" EntitySet="Grupo" />
+            <End Role="Proyecto" EntitySet="Proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proyecto__idProf__4222D4EF" Association="Self.FK__Proyecto__idProf__4222D4EF">
+            <End Role="Profesor" EntitySet="Profesor" />
+            <End Role="Proyecto" EntitySet="Proyecto" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BD_SistemaProyectosGraduacionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Archivo1">
+          <Key>
+            <PropertyRef Name="idArchivo" />
+          </Key>
+          <Property Name="idArchivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreArchivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipoContenido" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contenidoArchivo" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="idProyecto" Type="Int32" Nullable="false" />
+          <Property Name="documentos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.FK__Archivo1__idProy__48CFD27E" FromRole="Archivo1" ToRole="Proyecto" />
+        </EntityType>
+        <EntityType Name="Archivo2">
+          <Key>
+            <PropertyRef Name="idArchivo" />
+          </Key>
+          <Property Name="idArchivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreArchivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipoContenido" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contenidoArchivo" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="idProyecto" Type="Int32" Nullable="false" />
+          <Property Name="documentos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.FK__Archivo2__idProy__4BAC3F29" FromRole="Archivo2" ToRole="Proyecto" />
+        </EntityType>
+        <EntityType Name="Archivo3">
+          <Key>
+            <PropertyRef Name="idArchivo" />
+          </Key>
+          <Property Name="idArchivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreArchivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipoContenido" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contenidoArchivo" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="idProyecto" Type="Int32" Nullable="false" />
+          <Property Name="documentos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.FK__Archivo3__idProy__4E88ABD4" FromRole="Archivo3" ToRole="Proyecto" />
+        </EntityType>
+        <EntityType Name="Auditoria">
+          <Key>
+            <PropertyRef Name="idAuditoria" />
+          </Key>
+          <Property Name="idAuditoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usuario" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombreTabla" Type="String" MaxLength="90" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="tipoCambio" Type="String" MaxLength="90" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatalogoEntregable">
+          <Key>
+            <PropertyRef Name="idEntregable" />
+          </Key>
+          <Property Name="idEntregable" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreEntregable" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombreCurso" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.Entregable_Proyecto" FromRole="CatalogoEntregable" ToRole="Proyecto" />
+        </EntityType>
+        <EntityType Name="Comentario">
+          <Key>
+            <PropertyRef Name="idComentario" />
+          </Key>
+          <Property Name="idComentario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="contenido" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idProyecto" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.FK__Comentari__idPro__45F365D3" FromRole="Comentario" ToRole="Proyecto" />
+        </EntityType>
+        <EntityType Name="Curso">
+          <Key>
+            <PropertyRef Name="idCurso" />
+          </Key>
+          <Property Name="idCurso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreCurso" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Grupo" Relationship="Self.FK__Grupo__idCurso__3D5E1FD2" FromRole="Curso" ToRole="Grupo" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.FK__Proyecto__idCurs__412EB0B6" FromRole="Curso" ToRole="Proyecto" />
+          <NavigationProperty Name="Profesor" Relationship="Self.Profesor_Curso" FromRole="Curso" ToRole="Profesor" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="idContacto" />
+          </Key>
+          <Property Name="idContacto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreEmpresa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="nombreContacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="90" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipoEmpresa" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.FK__Proyecto__idCont__403A8C7D" FromRole="Empresa" ToRole="Proyecto" />
+        </EntityType>
+        <EntityType Name="Estudiante">
+          <Key>
+            <PropertyRef Name="idEstudiante" />
+          </Key>
+          <Property Name="idEstudiante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreEstudiante" Type="String" MaxLength="110" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idGrupo" Type="Int32" />
+          <Property Name="idProfesor" Type="Int32" />
+          <Property Name="nota" Type="Int32" />
+          <NavigationProperty Name="Grupo" Relationship="Self.FK__Estudiant__idGru__5AEE82B9" FromRole="Estudiante" ToRole="Grupo" />
+          <NavigationProperty Name="Profesor" Relationship="Self.FK__Estudiant__idPro__5BE2A6F2" FromRole="Estudiante" ToRole="Profesor" />
+        </EntityType>
+        <EntityType Name="Grupo">
+          <Key>
+            <PropertyRef Name="idGrupo" />
+          </Key>
+          <Property Name="idGrupo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreGrupo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idProfesor" Type="Int32" Nullable="false" />
+          <Property Name="sede" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idCurso" Type="Int32" Nullable="false" />
+          <Property Name="cuatrimestre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Curso" Relationship="Self.FK__Grupo__idCurso__3D5E1FD2" FromRole="Grupo" ToRole="Curso" />
+          <NavigationProperty Name="Estudiante" Relationship="Self.FK__Estudiant__idGru__5AEE82B9" FromRole="Grupo" ToRole="Estudiante" />
+          <NavigationProperty Name="Profesor" Relationship="Self.FK__Grupo__idProfeso__3C69FB99" FromRole="Grupo" ToRole="Profesor" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.FK__Proyecto__idGrup__4316F928" FromRole="Grupo" ToRole="Proyecto" />
+        </EntityType>
+        <EntityType Name="Profesor">
+          <Key>
+            <PropertyRef Name="idProfesor" />
+          </Key>
+          <Property Name="idProfesor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreProfesor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoProfesor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rol" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contrasena" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombreUsuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="emailProfesor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Estudiante" Relationship="Self.FK__Estudiant__idPro__5BE2A6F2" FromRole="Profesor" ToRole="Estudiante" />
+          <NavigationProperty Name="Grupo" Relationship="Self.FK__Grupo__idProfeso__3C69FB99" FromRole="Profesor" ToRole="Grupo" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.FK__Proyecto__idProf__4222D4EF" FromRole="Profesor" ToRole="Proyecto" />
+          <NavigationProperty Name="Curso" Relationship="Self.Profesor_Curso" FromRole="Profesor" ToRole="Curso" />
+        </EntityType>
+        <EntityType Name="Proyecto">
+          <Key>
+            <PropertyRef Name="idProyecto" />
+          </Key>
+          <Property Name="idProyecto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreProyecto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idContacto" Type="Int32" />
+          <Property Name="idCurso" Type="Int32" Nullable="false" />
+          <Property Name="tecnologia" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idProfesor" Type="Int32" Nullable="false" />
+          <Property Name="idGrupo" Type="Int32" Nullable="false" />
+          <Property Name="estadoProyecto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaInicio" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fechaFinalizado" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Archivo1" Relationship="Self.FK__Archivo1__idProy__48CFD27E" FromRole="Proyecto" ToRole="Archivo1" />
+          <NavigationProperty Name="Archivo2" Relationship="Self.FK__Archivo2__idProy__4BAC3F29" FromRole="Proyecto" ToRole="Archivo2" />
+          <NavigationProperty Name="Archivo3" Relationship="Self.FK__Archivo3__idProy__4E88ABD4" FromRole="Proyecto" ToRole="Archivo3" />
+          <NavigationProperty Name="Comentario" Relationship="Self.FK__Comentari__idPro__45F365D3" FromRole="Proyecto" ToRole="Comentario" />
+          <NavigationProperty Name="Curso" Relationship="Self.FK__Proyecto__idCurs__412EB0B6" FromRole="Proyecto" ToRole="Curso" />
+          <NavigationProperty Name="Empresa" Relationship="Self.FK__Proyecto__idCont__403A8C7D" FromRole="Proyecto" ToRole="Empresa" />
+          <NavigationProperty Name="Grupo" Relationship="Self.FK__Proyecto__idGrup__4316F928" FromRole="Proyecto" ToRole="Grupo" />
+          <NavigationProperty Name="Profesor" Relationship="Self.FK__Proyecto__idProf__4222D4EF" FromRole="Proyecto" ToRole="Profesor" />
+          <NavigationProperty Name="CatalogoEntregable" Relationship="Self.Entregable_Proyecto" FromRole="Proyecto" ToRole="CatalogoEntregable" />
+        </EntityType>
+        <Association Name="FK__Archivo1__idProy__48CFD27E">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="Archivo1" Type="Self.Archivo1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="idProyecto" />
+            </Principal>
+            <Dependent Role="Archivo1">
+              <PropertyRef Name="idProyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Archivo2__idProy__4BAC3F29">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="Archivo2" Type="Self.Archivo2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="idProyecto" />
+            </Principal>
+            <Dependent Role="Archivo2">
+              <PropertyRef Name="idProyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Archivo3__idProy__4E88ABD4">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="Archivo3" Type="Self.Archivo3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="idProyecto" />
+            </Principal>
+            <Dependent Role="Archivo3">
+              <PropertyRef Name="idProyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Comentari__idPro__45F365D3">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="Comentario" Type="Self.Comentario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="idProyecto" />
+            </Principal>
+            <Dependent Role="Comentario">
+              <PropertyRef Name="idProyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Grupo__idCurso__3D5E1FD2">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+          <End Role="Grupo" Type="Self.Grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="idCurso" />
+            </Principal>
+            <Dependent Role="Grupo">
+              <PropertyRef Name="idCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proyecto__idCurs__412EB0B6">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="idCurso" />
+            </Principal>
+            <Dependent Role="Proyecto">
+              <PropertyRef Name="idCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proyecto__idCont__403A8C7D">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="idContacto" />
+            </Principal>
+            <Dependent Role="Proyecto">
+              <PropertyRef Name="idContacto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estudiant__idGru__5AEE82B9">
+          <End Role="Grupo" Type="Self.Grupo" Multiplicity="0..1" />
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupo">
+              <PropertyRef Name="idGrupo" />
+            </Principal>
+            <Dependent Role="Estudiante">
+              <PropertyRef Name="idGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estudiant__idPro__5BE2A6F2">
+          <End Role="Profesor" Type="Self.Profesor" Multiplicity="0..1" />
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profesor">
+              <PropertyRef Name="idProfesor" />
+            </Principal>
+            <Dependent Role="Estudiante">
+              <PropertyRef Name="idProfesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Grupo__idProfeso__3C69FB99">
+          <End Role="Profesor" Type="Self.Profesor" Multiplicity="1" />
+          <End Role="Grupo" Type="Self.Grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profesor">
+              <PropertyRef Name="idProfesor" />
+            </Principal>
+            <Dependent Role="Grupo">
+              <PropertyRef Name="idProfesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proyecto__idGrup__4316F928">
+          <End Role="Grupo" Type="Self.Grupo" Multiplicity="1" />
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupo">
+              <PropertyRef Name="idGrupo" />
+            </Principal>
+            <Dependent Role="Proyecto">
+              <PropertyRef Name="idGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proyecto__idProf__4222D4EF">
+          <End Role="Profesor" Type="Self.Profesor" Multiplicity="1" />
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profesor">
+              <PropertyRef Name="idProfesor" />
+            </Principal>
+            <Dependent Role="Proyecto">
+              <PropertyRef Name="idProfesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Entregable_Proyecto">
+          <End Role="CatalogoEntregable" Type="Self.CatalogoEntregable" Multiplicity="*" />
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="*" />
+        </Association>
+        <Association Name="Profesor_Curso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="*" />
+          <End Role="Profesor" Type="Self.Profesor" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="prueba1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Archivo1" EntityType="Self.Archivo1" />
+          <EntitySet Name="Archivo2" EntityType="Self.Archivo2" />
+          <EntitySet Name="Archivo3" EntityType="Self.Archivo3" />
+          <EntitySet Name="Auditoria" EntityType="Self.Auditoria" />
+          <EntitySet Name="CatalogoEntregable" EntityType="Self.CatalogoEntregable" />
+          <EntitySet Name="Comentario" EntityType="Self.Comentario" />
+          <EntitySet Name="Curso" EntityType="Self.Curso" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" />
+          <EntitySet Name="Estudiante" EntityType="Self.Estudiante" />
+          <EntitySet Name="Grupo" EntityType="Self.Grupo" />
+          <EntitySet Name="Profesor" EntityType="Self.Profesor" />
+          <EntitySet Name="Proyecto" EntityType="Self.Proyecto" />
+          <AssociationSet Name="FK__Archivo1__idProy__48CFD27E" Association="Self.FK__Archivo1__idProy__48CFD27E">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="Archivo1" EntitySet="Archivo1" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Archivo2__idProy__4BAC3F29" Association="Self.FK__Archivo2__idProy__4BAC3F29">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="Archivo2" EntitySet="Archivo2" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Archivo3__idProy__4E88ABD4" Association="Self.FK__Archivo3__idProy__4E88ABD4">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="Archivo3" EntitySet="Archivo3" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Comentari__idPro__45F365D3" Association="Self.FK__Comentari__idPro__45F365D3">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="Comentario" EntitySet="Comentario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Grupo__idCurso__3D5E1FD2" Association="Self.FK__Grupo__idCurso__3D5E1FD2">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Grupo" EntitySet="Grupo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proyecto__idCurs__412EB0B6" Association="Self.FK__Proyecto__idCurs__412EB0B6">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Proyecto" EntitySet="Proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proyecto__idCont__403A8C7D" Association="Self.FK__Proyecto__idCont__403A8C7D">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Proyecto" EntitySet="Proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estudiant__idGru__5AEE82B9" Association="Self.FK__Estudiant__idGru__5AEE82B9">
+            <End Role="Grupo" EntitySet="Grupo" />
+            <End Role="Estudiante" EntitySet="Estudiante" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estudiant__idPro__5BE2A6F2" Association="Self.FK__Estudiant__idPro__5BE2A6F2">
+            <End Role="Profesor" EntitySet="Profesor" />
+            <End Role="Estudiante" EntitySet="Estudiante" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Grupo__idProfeso__3C69FB99" Association="Self.FK__Grupo__idProfeso__3C69FB99">
+            <End Role="Profesor" EntitySet="Profesor" />
+            <End Role="Grupo" EntitySet="Grupo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proyecto__idGrup__4316F928" Association="Self.FK__Proyecto__idGrup__4316F928">
+            <End Role="Grupo" EntitySet="Grupo" />
+            <End Role="Proyecto" EntitySet="Proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proyecto__idProf__4222D4EF" Association="Self.FK__Proyecto__idProf__4222D4EF">
+            <End Role="Profesor" EntitySet="Profesor" />
+            <End Role="Proyecto" EntitySet="Proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="Entregable_Proyecto" Association="Self.Entregable_Proyecto">
+            <End Role="CatalogoEntregable" EntitySet="CatalogoEntregable" />
+            <End Role="Proyecto" EntitySet="Proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="Profesor_Curso" Association="Self.Profesor_Curso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Profesor" EntitySet="Profesor" />
+          </AssociationSet>
+          <FunctionImport Name="selectComentarios" ReturnType="Collection(BD_SistemaProyectosGraduacionModel.selectComentarios_Result)">
+            <Parameter Name="idProyecto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="selectCurso" ReturnType="Collection(String)">
+            <Parameter Name="idProyecto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="selectCursoTodo" ReturnType="Collection(BD_SistemaProyectosGraduacionModel.selectCursoTodo_Result)" />
+          <FunctionImport Name="selectEmpresaTodo" ReturnType="Collection(BD_SistemaProyectosGraduacionModel.selectEmpresaTodo_Result)" />
+          <FunctionImport Name="selectEstudiante" ReturnType="Collection(String)">
+            <Parameter Name="idProfesor" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="selectGrupo" ReturnType="Collection(BD_SistemaProyectosGraduacionModel.selectGrupo_Result)">
+            <Parameter Name="idProyecto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="selectGrupo1" ReturnType="Collection(BD_SistemaProyectosGraduacionModel.selectGrupo1_Result)">
+            <Parameter Name="idProfesor" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="selectProfesor" ReturnType="Collection(BD_SistemaProyectosGraduacionModel.selectProfesor_Result)">
+            <Parameter Name="idProyecto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="selectProfesor1" ReturnType="Collection(BD_SistemaProyectosGraduacionModel.selectProfesor1_Result)">
+            <Parameter Name="idProfesor" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="selectProfesorTodo" ReturnType="Collection(BD_SistemaProyectosGraduacionModel.selectProfesorTodo_Result)" />
+          <FunctionImport Name="selectProyecto" ReturnType="Collection(BD_SistemaProyectosGraduacionModel.selectProyecto_Result)">
+            <Parameter Name="idProyecto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="selectProyecto1" ReturnType="Collection(BD_SistemaProyectosGraduacionModel.selectProyecto1_Result)">
+            <Parameter Name="idProfesor" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="selectProyectoTodo" ReturnType="Collection(BD_SistemaProyectosGraduacionModel.selectProyectoTodo_Result)" />
+        </EntityContainer>
+        <ComplexType Name="selectComentarios_Result">
+          <Property Type="DateTime" Name="fecha" Nullable="false" />
+          <Property Type="String" Name="contenido" Nullable="false" MaxLength="400" />
+        </ComplexType>
+        <ComplexType Name="selectCursoTodo_Result">
+          <Property Type="Int32" Name="idCurso" Nullable="false" />
+          <Property Type="String" Name="nombreCurso" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="selectEmpresaTodo_Result">
+          <Property Type="Int32" Name="idContacto" Nullable="false" />
+          <Property Type="String" Name="nombreEmpresa" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="nombreContacto" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="email" Nullable="false" MaxLength="90" />
+          <Property Type="Int32" Name="telefono" Nullable="false" />
+          <Property Type="String" Name="tipoEmpresa" Nullable="true" MaxLength="90" />
+        </ComplexType>
+        <ComplexType Name="selectGrupo_Result">
+          <Property Type="String" Name="nombreGrupo" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="sede" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="cuatrimestre" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="selectGrupo1_Result">
+          <Property Type="Int32" Name="idGrupo" Nullable="false" />
+          <Property Type="String" Name="nombreGrupo" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="sede" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="cuatrimestre" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="selectProfesor_Result">
+          <Property Type="String" Name="nombreProfesor" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="apellidoProfesor" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="emailProfesor" Nullable="false" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="selectProfesor1_Result">
+          <Property Type="String" Name="nombreProfesor" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="apellidoProfesor" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="rol" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="nombreUsuario" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="emailProfesor" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="9" />
+        </ComplexType>
+        <ComplexType Name="selectProfesorTodo_Result">
+          <Property Type="Int32" Name="idProfesor" Nullable="false" />
+          <Property Type="String" Name="nombreProfesor" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="apellidoProfesor" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="nombreUsuario" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="emailProfesor" Nullable="false" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="selectProyecto_Result">
+          <Property Type="String" Name="nombreProyecto" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="tecnologia" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="estadoProyecto" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="fechaInicio" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="selectProyecto1_Result">
+          <Property Type="String" Name="nombreProyecto" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="tecnologia" Nullable="false" MaxLength="30" />
+          <Property Type="DateTime" Name="fechaInicio" Nullable="false" />
+          <Property Type="Int32" Name="idCurso" Nullable="false" />
+          <Property Type="Int32" Name="idGrupo" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="selectProyectoTodo_Result">
+          <Property Type="Int32" Name="idProyecto" Nullable="false" />
+          <Property Type="String" Name="nombreProyecto" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="estadoProyecto" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="tecnologia" Nullable="false" MaxLength="30" />
+          <Property Type="DateTime" Name="fechaInicio" Nullable="false" />
+          <Property Type="Int32" Name="idContacto" Nullable="true" />
+          <Property Type="Int32" Name="idCurso" Nullable="false" />
+          <Property Type="Int32" Name="idProfesor" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BD_SistemaProyectosGraduacionModelStoreContainer" CdmEntityContainer="prueba1Entities">
+          <EntitySetMapping Name="Archivo1">
+            <EntityTypeMapping TypeName="BD_SistemaProyectosGraduacionModel.Archivo1">
+              <MappingFragment StoreEntitySet="Archivo1">
+                <ScalarProperty Name="idArchivo" ColumnName="idArchivo" />
+                <ScalarProperty Name="nombreArchivo" ColumnName="nombreArchivo" />
+                <ScalarProperty Name="tipoContenido" ColumnName="tipoContenido" />
+                <ScalarProperty Name="contenidoArchivo" ColumnName="contenidoArchivo" />
+                <ScalarProperty Name="idProyecto" ColumnName="idProyecto" />
+                <ScalarProperty Name="documentos" ColumnName="documentos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Archivo2">
+            <EntityTypeMapping TypeName="BD_SistemaProyectosGraduacionModel.Archivo2">
+              <MappingFragment StoreEntitySet="Archivo2">
+                <ScalarProperty Name="idArchivo" ColumnName="idArchivo" />
+                <ScalarProperty Name="nombreArchivo" ColumnName="nombreArchivo" />
+                <ScalarProperty Name="tipoContenido" ColumnName="tipoContenido" />
+                <ScalarProperty Name="contenidoArchivo" ColumnName="contenidoArchivo" />
+                <ScalarProperty Name="idProyecto" ColumnName="idProyecto" />
+                <ScalarProperty Name="documentos" ColumnName="documentos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Archivo3">
+            <EntityTypeMapping TypeName="BD_SistemaProyectosGraduacionModel.Archivo3">
+              <MappingFragment StoreEntitySet="Archivo3">
+                <ScalarProperty Name="idArchivo" ColumnName="idArchivo" />
+                <ScalarProperty Name="nombreArchivo" ColumnName="nombreArchivo" />
+                <ScalarProperty Name="tipoContenido" ColumnName="tipoContenido" />
+                <ScalarProperty Name="contenidoArchivo" ColumnName="contenidoArchivo" />
+                <ScalarProperty Name="idProyecto" ColumnName="idProyecto" />
+                <ScalarProperty Name="documentos" ColumnName="documentos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Auditoria">
+            <EntityTypeMapping TypeName="BD_SistemaProyectosGraduacionModel.Auditoria">
+              <MappingFragment StoreEntitySet="Auditoria">
+                <ScalarProperty Name="idAuditoria" ColumnName="idAuditoria" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="nombreTabla" ColumnName="nombreTabla" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="tipoCambio" ColumnName="tipoCambio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatalogoEntregable">
+            <EntityTypeMapping TypeName="BD_SistemaProyectosGraduacionModel.CatalogoEntregable">
+              <MappingFragment StoreEntitySet="CatalogoEntregable">
+                <ScalarProperty Name="idEntregable" ColumnName="idEntregable" />
+                <ScalarProperty Name="nombreEntregable" ColumnName="nombreEntregable" />
+                <ScalarProperty Name="nombreCurso" ColumnName="nombreCurso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comentario">
+            <EntityTypeMapping TypeName="BD_SistemaProyectosGraduacionModel.Comentario">
+              <MappingFragment StoreEntitySet="Comentario">
+                <ScalarProperty Name="idComentario" ColumnName="idComentario" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="contenido" ColumnName="contenido" />
+                <ScalarProperty Name="idProyecto" ColumnName="idProyecto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Curso">
+            <EntityTypeMapping TypeName="BD_SistemaProyectosGraduacionModel.Curso">
+              <MappingFragment StoreEntitySet="Curso">
+                <ScalarProperty Name="idCurso" ColumnName="idCurso" />
+                <ScalarProperty Name="nombreCurso" ColumnName="nombreCurso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empresa">
+            <EntityTypeMapping TypeName="BD_SistemaProyectosGraduacionModel.Empresa">
+              <MappingFragment StoreEntitySet="Empresa">
+                <ScalarProperty Name="idContacto" ColumnName="idContacto" />
+                <ScalarProperty Name="nombreEmpresa" ColumnName="nombreEmpresa" />
+                <ScalarProperty Name="nombreContacto" ColumnName="nombreContacto" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="tipoEmpresa" ColumnName="tipoEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estudiante">
+            <EntityTypeMapping TypeName="BD_SistemaProyectosGraduacionModel.Estudiante">
+              <MappingFragment StoreEntitySet="Estudiante">
+                <ScalarProperty Name="idEstudiante" ColumnName="idEstudiante" />
+                <ScalarProperty Name="nombreEstudiante" ColumnName="nombreEstudiante" />
+                <ScalarProperty Name="idGrupo" ColumnName="idGrupo" />
+                <ScalarProperty Name="idProfesor" ColumnName="idProfesor" />
+                <ScalarProperty Name="nota" ColumnName="nota" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grupo">
+            <EntityTypeMapping TypeName="BD_SistemaProyectosGraduacionModel.Grupo">
+              <MappingFragment StoreEntitySet="Grupo">
+                <ScalarProperty Name="idGrupo" ColumnName="idGrupo" />
+                <ScalarProperty Name="nombreGrupo" ColumnName="nombreGrupo" />
+                <ScalarProperty Name="idProfesor" ColumnName="idProfesor" />
+                <ScalarProperty Name="sede" ColumnName="sede" />
+                <ScalarProperty Name="idCurso" ColumnName="idCurso" />
+                <ScalarProperty Name="cuatrimestre" ColumnName="cuatrimestre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profesor">
+            <EntityTypeMapping TypeName="BD_SistemaProyectosGraduacionModel.Profesor">
+              <MappingFragment StoreEntitySet="Profesor">
+                <ScalarProperty Name="idProfesor" ColumnName="idProfesor" />
+                <ScalarProperty Name="nombreProfesor" ColumnName="nombreProfesor" />
+                <ScalarProperty Name="apellidoProfesor" ColumnName="apellidoProfesor" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="nombreUsuario" ColumnName="nombreUsuario" />
+                <ScalarProperty Name="emailProfesor" ColumnName="emailProfesor" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proyecto">
+            <EntityTypeMapping TypeName="BD_SistemaProyectosGraduacionModel.Proyecto">
+              <MappingFragment StoreEntitySet="Proyecto">
+                <ScalarProperty Name="idProyecto" ColumnName="idProyecto" />
+                <ScalarProperty Name="nombreProyecto" ColumnName="nombreProyecto" />
+                <ScalarProperty Name="idContacto" ColumnName="idContacto" />
+                <ScalarProperty Name="idCurso" ColumnName="idCurso" />
+                <ScalarProperty Name="tecnologia" ColumnName="tecnologia" />
+                <ScalarProperty Name="idProfesor" ColumnName="idProfesor" />
+                <ScalarProperty Name="idGrupo" ColumnName="idGrupo" />
+                <ScalarProperty Name="estadoProyecto" ColumnName="estadoProyecto" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+                <ScalarProperty Name="fechaFinalizado" ColumnName="fechaFinalizado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Entregable_Proyecto" TypeName="BD_SistemaProyectosGraduacionModel.Entregable_Proyecto" StoreEntitySet="Entregable_Proyecto">
+            <EndProperty Name="CatalogoEntregable">
+              <ScalarProperty Name="idEntregable" ColumnName="idEntregable" />
+            </EndProperty>
+            <EndProperty Name="Proyecto">
+              <ScalarProperty Name="idProyecto" ColumnName="idProyecto" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Profesor_Curso" TypeName="BD_SistemaProyectosGraduacionModel.Profesor_Curso" StoreEntitySet="Profesor_Curso">
+            <EndProperty Name="Curso">
+              <ScalarProperty Name="idCurso" ColumnName="idCurso" />
+            </EndProperty>
+            <EndProperty Name="Profesor">
+              <ScalarProperty Name="idProfesor" ColumnName="idProfesor" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="selectComentarios" FunctionName="BD_SistemaProyectosGraduacionModel.Store.selectComentarios">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_SistemaProyectosGraduacionModel.selectComentarios_Result">
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="contenido" ColumnName="contenido" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectCurso" FunctionName="BD_SistemaProyectosGraduacionModel.Store.selectCurso" />
+          <FunctionImportMapping FunctionImportName="selectCursoTodo" FunctionName="BD_SistemaProyectosGraduacionModel.Store.selectCursoTodo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_SistemaProyectosGraduacionModel.selectCursoTodo_Result">
+                <ScalarProperty Name="idCurso" ColumnName="idCurso" />
+                <ScalarProperty Name="nombreCurso" ColumnName="nombreCurso" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectEmpresaTodo" FunctionName="BD_SistemaProyectosGraduacionModel.Store.selectEmpresaTodo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_SistemaProyectosGraduacionModel.selectEmpresaTodo_Result">
+                <ScalarProperty Name="idContacto" ColumnName="idContacto" />
+                <ScalarProperty Name="nombreEmpresa" ColumnName="nombreEmpresa" />
+                <ScalarProperty Name="nombreContacto" ColumnName="nombreContacto" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="tipoEmpresa" ColumnName="tipoEmpresa" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectEstudiante" FunctionName="BD_SistemaProyectosGraduacionModel.Store.selectEstudiante" />
+          <FunctionImportMapping FunctionImportName="selectGrupo" FunctionName="BD_SistemaProyectosGraduacionModel.Store.selectGrupo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_SistemaProyectosGraduacionModel.selectGrupo_Result">
+                <ScalarProperty Name="nombreGrupo" ColumnName="nombreGrupo" />
+                <ScalarProperty Name="sede" ColumnName="sede" />
+                <ScalarProperty Name="cuatrimestre" ColumnName="cuatrimestre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectGrupo1" FunctionName="BD_SistemaProyectosGraduacionModel.Store.selectGrupo1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_SistemaProyectosGraduacionModel.selectGrupo1_Result">
+                <ScalarProperty Name="idGrupo" ColumnName="idGrupo" />
+                <ScalarProperty Name="nombreGrupo" ColumnName="nombreGrupo" />
+                <ScalarProperty Name="sede" ColumnName="sede" />
+                <ScalarProperty Name="cuatrimestre" ColumnName="cuatrimestre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectProfesor" FunctionName="BD_SistemaProyectosGraduacionModel.Store.selectProfesor">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_SistemaProyectosGraduacionModel.selectProfesor_Result">
+                <ScalarProperty Name="nombreProfesor" ColumnName="nombreProfesor" />
+                <ScalarProperty Name="apellidoProfesor" ColumnName="apellidoProfesor" />
+                <ScalarProperty Name="emailProfesor" ColumnName="emailProfesor" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectProfesor1" FunctionName="BD_SistemaProyectosGraduacionModel.Store.selectProfesor1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_SistemaProyectosGraduacionModel.selectProfesor1_Result">
+                <ScalarProperty Name="nombreProfesor" ColumnName="nombreProfesor" />
+                <ScalarProperty Name="apellidoProfesor" ColumnName="apellidoProfesor" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
+                <ScalarProperty Name="nombreUsuario" ColumnName="nombreUsuario" />
+                <ScalarProperty Name="emailProfesor" ColumnName="emailProfesor" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectProfesorTodo" FunctionName="BD_SistemaProyectosGraduacionModel.Store.selectProfesorTodo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_SistemaProyectosGraduacionModel.selectProfesorTodo_Result">
+                <ScalarProperty Name="idProfesor" ColumnName="idProfesor" />
+                <ScalarProperty Name="nombreProfesor" ColumnName="nombreProfesor" />
+                <ScalarProperty Name="apellidoProfesor" ColumnName="apellidoProfesor" />
+                <ScalarProperty Name="nombreUsuario" ColumnName="nombreUsuario" />
+                <ScalarProperty Name="emailProfesor" ColumnName="emailProfesor" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectProyecto" FunctionName="BD_SistemaProyectosGraduacionModel.Store.selectProyecto">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_SistemaProyectosGraduacionModel.selectProyecto_Result">
+                <ScalarProperty Name="nombreProyecto" ColumnName="nombreProyecto" />
+                <ScalarProperty Name="tecnologia" ColumnName="tecnologia" />
+                <ScalarProperty Name="estadoProyecto" ColumnName="estadoProyecto" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectProyecto1" FunctionName="BD_SistemaProyectosGraduacionModel.Store.selectProyecto1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_SistemaProyectosGraduacionModel.selectProyecto1_Result">
+                <ScalarProperty Name="nombreProyecto" ColumnName="nombreProyecto" />
+                <ScalarProperty Name="tecnologia" ColumnName="tecnologia" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+                <ScalarProperty Name="idCurso" ColumnName="idCurso" />
+                <ScalarProperty Name="idGrupo" ColumnName="idGrupo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectProyectoTodo" FunctionName="BD_SistemaProyectosGraduacionModel.Store.selectProyectoTodo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_SistemaProyectosGraduacionModel.selectProyectoTodo_Result">
+                <ScalarProperty Name="idProyecto" ColumnName="idProyecto" />
+                <ScalarProperty Name="nombreProyecto" ColumnName="nombreProyecto" />
+                <ScalarProperty Name="estadoProyecto" ColumnName="estadoProyecto" />
+                <ScalarProperty Name="tecnologia" ColumnName="tecnologia" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+                <ScalarProperty Name="idContacto" ColumnName="idContacto" />
+                <ScalarProperty Name="idCurso" ColumnName="idCurso" />
+                <ScalarProperty Name="idProfesor" ColumnName="idProfesor" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

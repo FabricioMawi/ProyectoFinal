@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/LoginLayout.cshtml";
+}
+
+<div class="container">
+    @{
+        if (!string.IsNullOrEmpty(ViewBag.Message))
+        {
+            <div class="alert alert-warning"> @ViewBag.Message </div>
+        }
+    }
+<form action="~/Home/Login" method="post" class="frm-single">
+    
+
+    <div class="inside">
+        <div class="title"><strong>Bienvenido</strong></div>
+
+        <div class="frm-title">Iniciar Sesión</div>
+
+        <div class="frm-input"><input type="email" name="email" value="" placeholder="Usuario" class="frm-inp"><i class="fa fa-user frm-ico"></i></div>
+        <div class="frm-input"><input type="password" name="password" value="" placeholder="Contraseña" class="frm-inp"><i class="fa fa-lock frm-ico"></i></div>
+        <div class="medium" style="color: red;">
+            @ViewBag.Error
+        </div>
+        <button type="submit" class="frm-submit" style="background-color:navy">Ingresar<i class="fa fa-arrow-circle-right"></i></button>
+
+        <div class="form-group mt-2 ml-10">
+            @Html.ActionLink("¿Olvidó su contraseña?", "RecuperarContraseña")
+
+
+        </div>
+    </div>
+        
+    </form>
+    
+</div>

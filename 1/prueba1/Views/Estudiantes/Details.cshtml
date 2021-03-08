@@ -1,0 +1,56 @@
+﻿@model prueba1.Models.Estudiante
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles del estudiante</h2>
+
+<div class="row small-spacingr" style="margin-left: 35vh;">
+    <div class="col-lg-10 col-xs-12">
+        <div class="box-content card white">
+            
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    Nombre
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.nombreEstudiante)
+                </dd>
+
+                <dt>
+                    Nota
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.nota)
+                </dd>
+
+                <dt>
+                    Grupo
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Grupo.nombreGrupo)
+                </dd>
+
+                <dt>
+                    Profesor
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Profesor.nombreProfesor)
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idEstudiante }) |
+    @Html.ActionLink("Volver a la lista", "Index")
+</p>
+        

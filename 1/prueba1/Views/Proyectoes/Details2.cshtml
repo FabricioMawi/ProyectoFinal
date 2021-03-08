@@ -1,0 +1,247 @@
+﻿@model prueba1.Models.Proyecto
+
+@{
+    ViewBag.Title = "Proyecto en Diseño de Sistemas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="css/bootstrap-3.1.1.min.css" type="text/css" />
+<link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css" />
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
+<h2>Proyecto en Diseño de Sistemas</h2>
+
+<div class="row small-spacingr" style="margin-left: 35vh;">
+    <div class="col-lg-10 col-xs-12">
+        <div class="box-content card white">
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    Nombre del Proyecto:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.nombreProyecto)
+                </dd>
+
+                <dt>
+                    Tecnología:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.tecnologia)
+                </dd>
+
+                <dt>
+                    Estado del Proyecto:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.estadoProyecto)
+                </dd>
+
+                <dt>
+                    Fecha de inicio:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.fechaInicio)
+                </dd>
+
+                <dt>
+                    Fecha de finalización:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.fechaFinalizado)
+                </dd>
+
+                <dt>
+                    Curso actual:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Curso.nombreCurso)
+                </dd>
+
+                <dt>
+                    Empresa:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Empresa.nombreEmpresa)
+                </dd>
+
+                <dt>
+                    Grupo:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Grupo.nombreGrupo)
+                </dd>
+
+                <dt>
+                    Profesor:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Profesor.nombreProfesor)
+                </dd>
+
+            </dl>
+        </div>
+        <div class="big mb-1" style="color: red;">
+            @ViewBag.Error
+        </div>
+
+        @using (Html.BeginForm("Guardar", "Proyectoes", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="row">
+                <div class="col-md-8 margin-top-25"> <input type="file" name="nombreArchivo" </div>
+                <div class="form-group">
+                    <div class="col-md-12"> <input type="hidden" name="idProyecto" value="@Model.idProyecto" id="idProyecto" /> </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-3"> <input type="submit" name="Submit" id="Submit" style="background-color:navy" action="Guardar" value="Guardar archivo" class="btn btn-success" /> </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8 margin-top-15 ">
+
+
+                    <input type="checkbox" id="Documento" name="Documento" value="DN01 Documento de Arquitectura de Software">
+                    <label for="vehicle2">Documento 1</label>
+
+                    <input onclick="myFunction()" type="checkbox" id="DocumentoFinal" name="DocumentoFinal" required>
+                    <label for="vehicle3"> Confirmar Documentos</label>
+
+
+                </div>
+            </div>
+
+            <script>
+                function myFunction() {
+
+                    var documento1 = document.getElementById("Documento");
+                    var documento2 = document.getElementById("Documento2");
+                    var documento3 = document.getElementById("Documento3");
+                    var final = document.getElementById("DocumentoFinal");
+
+                    if (documento1.checked == true | documento2.checked == true | documento3.checked == true) {
+
+                        final.value = documento1.value;
+
+                    } else {
+                        text.style.display = "no se marcaron los documentos";
+                    }
+
+                }
+
+            </script>
+
+        }
+
+
+
+        <div>
+            @using (Html.BeginForm("DownloadFile2", "Proyectoes", FormMethod.Post))
+            {
+                <input type="hidden" id="hfFileId" name="FileId" />
+                <input type="submit" id="btnDownload" value="Download" style="display:none" />
+            }
+            <hr />
+
+            <h3>Archivos de diseño y desarrollo</h3>
+            <table class="table table-striped table-bordered display dataTable" style="color:steelblue">
+                <tr>
+                    <th style="width:90px">ID Archivo</th>
+                    <th style="width:120px">Nombre del Archivo</th>
+                    <th style="width:80px">Descargar</th>
+                </tr>
+                @if (Model.Archivo2.Count > 0)
+                {
+                    foreach (var file in Model.Archivo2)
+                    {
+                        <tr>
+                            <td>@file.idArchivo</td>
+                            <td>@file.nombreArchivo</td>
+                            <td><a href="javascript:;" onclick="DownloadFile2(@file.idArchivo)">Descargar</a></td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3">No se han subido archivos</td>
+                    </tr>
+                }
+            </table>
+
+            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+            <script type="text/javascript">
+                function DownloadFile2(fileId) {
+                    $("#hfFileId").val(fileId);
+                    $("#btnDownload")[0].click();
+                };
+            </script>
+        </div>
+
+        <div>
+            @using (Html.BeginForm("DownloadFile", "Proyectoes", FormMethod.Post))
+            {
+                <input type="hidden" id="hfFileId1" name="FileId" />
+                <input type="submit" id="btnDownload1" value="Download" style="display:none" />
+            }
+            <hr />
+
+            <h3>Archivos de requerimientos</h3>
+            <table class="table table-striped table-bordered display dataTable" style="color:steelblue">
+                <tr>
+                    <th style="width:90px">ID Archivo</th>
+                    <th style="width:120px">Nombre del Archivo</th>
+                    <th style="width:80px">Descargar</th>
+                </tr>
+                @if (Model.Archivo1.Count > 0)
+                {
+                    foreach (var file in Model.Archivo1)
+                    {
+                        <tr>
+                            <td>@file.idArchivo</td>
+                            <td>@file.nombreArchivo</td>
+                            <td><a href="javascript:;" onclick="DownloadFile(@file.idArchivo)">Descargar</a></td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3">No se han subido archivos</td>
+                    </tr>
+                }
+            </table>
+
+            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+            <script type="text/javascript">
+                function DownloadFile(fileId) {
+                    $("#hfFileId1").val(fileId);
+                    $("#btnDownload1")[0].click();
+                };
+            </script>
+        </div>
+
+        <br />
+        <p>
+            @Html.ActionLink("Crear reporte", "Reporte", new { id = Model.idProyecto }) |
+            @Html.ActionLink("Editar", "Editar", new { id = Model.idProyecto }) |
+            @Html.ActionLink("Volver a la lista", "Index")
+        </p>
+
+    </div>
+</div>
+
+
+
+

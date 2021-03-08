@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/LoginLayout.cshtml";
+}
+
+<div class="container">
+    @{
+        if (!string.IsNullOrEmpty(ViewBag.Message))
+        {
+            <div class="alert alert-warning"> @ViewBag.Message </div>
+        }
+    }
+    <form action="~/Home/RecuperarContraseña" method="post" class="frm-single">
+
+
+        <div class="inside">
+            
+
+            <div class="frm-title">Se enviara una contraseña nueva a su correo</div>
+
+            <div class="frm-input"><input type="email" name="correo" value="" placeholder="Correo Electronico" class="frm-inp"><i class="fa fa-history frm-ico"></i></div>
+           
+            <div class="medium" style="color: red;">
+                @ViewBag.Error
+            </div>
+            <button type="submit" class="frm-submit" style="background-color:navy">Enviar<i class="fa fa-arrow-circle-right"></i></button>
+
+            <div class="form-group mt-2 ml-10">
+                @Html.ActionLink("Volver al Login", "Login")
+
+
+            </div>
+        </div>
+
+    </form>
+
+</div>

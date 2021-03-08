@@ -1,0 +1,66 @@
+﻿@model prueba1.Models.Empresa
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles de la empresa</h2>
+
+
+    
+<div class="row small-spacingr" style="margin-left: 35vh;">
+    <div class="col-lg-10 col-xs-12">
+        <div class="box-content card white">
+
+            <hr />
+            <dl class="dl-horizontal">
+
+
+                <dt>
+                    Nombre
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.nombreEmpresa)
+                </dd>
+
+                <dt>
+                    Contacto
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.nombreContacto)
+                </dd>
+
+                <dt>
+                    Teléfono
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.telefono)
+                </dd>
+
+                <dt>
+                    Correo
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.email)
+                </dd>
+
+                <dt>
+                    Tipo de empresa
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.tipoEmpresa)
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+
+
+        <p>
+            @Html.ActionLink("Editar", "Edit", new { id = Model.idContacto }) |
+            @Html.ActionLink("Volver a la lista", "Index")
+        </p>

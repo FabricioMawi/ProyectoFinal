@@ -1,0 +1,55 @@
+﻿@model IEnumerable<prueba1.Models.Comentario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Comentarios</h2>
+
+
+@using (Html.BeginForm())
+{
+    <p>
+         @Html.TextBox("SearchString")
+        <input type="submit" value="Buscar" class="btn btn-primary btn-sm" style="background-color:navy" />
+    </p>
+    <p>
+        @Html.ActionLink("Agregar", "Create")
+    </p>
+}
+<table class="table table-striped table-bordered display dataTable" style="color:steelblue">
+    <tr>
+        <th>
+            Fecha
+        </th>
+        <th>
+            Contenido
+        </th>
+        <th>
+            Proyecto
+        </th>
+        
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contenido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proyecto.nombreProyecto)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idComentario }) |
+                @Html.ActionLink("Ver contenido", "Details", new { id = item.idComentario }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.idComentario })
+
+            </td>
+        </tr>
+    }
+
+</table>

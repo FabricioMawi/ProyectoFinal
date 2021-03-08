@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/documenter_style.css" rel="stylesheet">
+
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+   
+        <div class="main-menu " style="background-color:gold">
+            <header class="header" style="background-color:gold">
+                <a href="index.html" class="logo" style="background-color:midnightblue " > Universidad Fidélitas</a>
+                <button type="button" style="background-color:midnightblue "class="button-close  fa fa-times js__menu_close" style="background-color:midnightblue " ></button>
+                <div class="user">
+                    <a href="#" class="avatar"><img src="http://placehold.it/80x80" alt=""><span class="status online"></span></a>
+                    <h5 class="name"><a href="profile.html">@Session["Nombre"]</a></h5>
+                    <h5 class="position">@Session["RolVista"]</h5>
+                    <!-- /.name -->
+                    <div class="control-wrap js__drop_down">
+                        <i class="fa fa-caret-down js__drop_down_button"></i>
+                        <div class="control-list">
+                            <div class="control-item">@Html.ActionLink("Cambiar contraseña", "CambiarContraseña")</div>
+                            
+                            <div class="control-item">@Html.ActionLink("Cerrar sesión", "Logout", "Home")  </div>
+
+                        </div>
+                        <!-- /.control-list -->
+                    </div>
+                    <!-- /.control-wrap -->
+                </div>
+                <!-- /.user -->
+            </header>
+            <!-- /.header -->
+            <div class="content">
+
+                <div class="navigation" >
+                    <h5 class="title"  style="background-color:gold" >Opciones</h5>
+                    <!-- /.title -->
+                    <ul class="menu js__accordion">
+                        <li>
+                            <a class="waves-effect" href="~/Home"><i class="menu-icon fa fa-home"></i><span>Página principal</span></a>
+                        </li>
+                        <li>
+                            <a class="waves-effect " href="~/Empresas"><i class="menu-icon fa fa-clipboard"></i><span>Empresas</span></a>
+
+                            <!-- /.sub-menu js__content -->
+                        </li>
+                        <li>
+                            <a class="waves-effect " href="~/Proyectoes"><i class="menu-icon fa fa-laptop"></i><span>Proyectos</span></a>
+
+
+
+                            <!-- /.sub-menu js__content -->
+                        </li>
+                        <li>
+                            <a class="waves-effect " href="~/Profesors/"><i class="menu-icon fa fa-user"></i><span>Profesores</span></a>
+
+
+
+                            <!-- /.sub-menu js__content -->
+                        </li>
+                        <li>
+                            <a class="waves-effect " href="~/Grupo"><i class="menu-icon fa fa-users"></i><span>Grupos</span></a>
+
+
+
+                            <!-- /.sub-menu js__content -->
+                        </li>
+                        <li>
+                            <a class="waves-effect " href="~/Comentarios"><i class="menu-icon fa fa-pencil"></i><span>Comentarios</span></a>
+
+
+
+                            <!-- /.sub-menu js__content -->
+                        </li>
+                        <li>
+                            <a class="waves-effect " href="~/Estudiantes"><i class="menu-icon fa fa-book"></i><span>Estudiantes</span></a>
+
+
+
+                            <!-- /.sub-menu js__content -->
+                        </li>
+                        <li>
+                            <a class="waves-effect " href="~/Empresas/Reporte"><i class="menu-icon fa fa-file"></i><span>Reporte de empresas</span></a>
+
+
+
+                            <!-- /.sub-menu js__content -->
+                        </li>
+                        <li>
+                            <a class="waves-effect " href="~/Proyectoes/ReporteTodos"><i class="menu-icon fa fa-file"></i><span>Reporte de proyectos</span></a>
+
+
+
+                            <!-- /.sub-menu js__content -->
+                        </li>
+
+
+                        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Admin Dashboard
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="@Url.Action("Index", "UsersAdmin", new { area = "Identity" })">Users Admin</a>
+                                    <a class="dropdown-item" href="@Url.Action("Index", "RolesAdmin", new { area = "Identity" })">Roles Admin</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Manager</a>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                        
+                    
+                </div>
+                <!-- /.navigation -->
+            </div>
+            <!-- /.content -->
+        </div>
+        <!-- /.main-menu -->
+
+        <div class="fixed-navbar" style="background-color:midnightblue">
+            <div class="pull-left">
+                <button type="button" class="menu-mobile-button glyphicon glyphicon-menu-hamburger js__menu_mobile" style="background-color:midnightblue"></button>
+                <h1 class="page-title">Departamento de Análisis</h1>
+                <!-- /.page-title -->
+            </div>
+            <!-- /.pull-left -->
+            <div class="pull-right">
+                
+               
+            </div>
+            <!-- /.pull-right -->
+        </div>
+        <!-- /.fixed-navbar -->
+
+      
+
+        
+
+        <div id="wrapper">
+            <div class="main-content">
+                @RenderBody()
+                <footer class="footer">
+                    <ul class="list-inline">
+                        
+                    </ul>
+                </footer>
+            </div>
+           
+        </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Bundle/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,85 @@
+﻿@model prueba1.Models.Profesor
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Deshabilitar</h2>
+
+<h3>¿Seguro que desea deshabilitar este profesor?</h3>
+<div>
+    <h4>Profesor</h4>
+    <hr />
+    <div class="row small-spacingr" style="margin-left: 35vh;">
+        <div class="col-lg-10 col-xs-12">
+            <div class="box-content card white">
+                <dl class="dl-horizontal">
+                        <dt>
+                            Nombre:
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.nombreProfesor)
+                        </dd>
+
+                        <dt>
+                            Apellido:
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.apellidoProfesor)
+                        </dd>
+
+                        <dt>
+                            Rol:
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.rol)
+                        </dd>
+
+                        <dt>
+                            Usuario
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.nombreUsuario)
+                        </dd>
+
+                        <dt>
+                            Email
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.emailProfesor)
+                        </dd>
+
+                        <dt>
+                            Estado
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.estado)
+                        </dd>
+
+                    </dl>
+                    <div class="big mb-1" style="color: red;">
+                        @ViewBag.Error
+                    </div>
+
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Eliminar" class="btn btn-danger" style="background-color:navy" />
+                        </div>
+                        <div>
+                            @Html.ActionLink("Volver a la lista", "Index")
+                        </div>
+                    }
+            </div>
+        </div>
+    </div>
+</div>

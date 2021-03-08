@@ -1,0 +1,74 @@
+﻿@model prueba1.Models.Grupo
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>¿Seguro que desea eliminar este grupo?</h3>
+<h4>Grupo</h4>
+<hr />
+<div class="row small-spacingr" style="margin-left: 35vh;">
+    <div class="col-lg-10 col-xs-12">
+        <div class="box-content card white">
+            <dl class="dl-horizontal">
+                <dt>
+                    Nombre Grupo:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.nombreGrupo)
+                </dd>
+                <dt>
+                    Sede:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.sede)
+                </dd>
+
+                <dt>
+                    Cuatrimestre:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.cuatrimestre)
+                </dd>
+
+                <dt>
+                    Curso:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Curso.nombreCurso)
+                </dd>
+
+                <dt>
+                    Profesor:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Profesor.nombreProfesor)
+                </dd>
+
+            </dl>
+            <div class="big mb-1" style="color: red;">
+                @ViewBag.Error
+            </div>
+
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Eliminar" class="btn btn-danger" style="background-color:navy" />
+                </div>
+                <div>
+                    @Html.ActionLink("Volver a la Lista", "Index")
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+﻿@model prueba1.Models.Comentario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<<h2>Detalles del estudiante</h2>
+
+ <div class="row small-spacingr" style="margin-left: 35vh;">
+     <div class="col-lg-10 col-xs-12">
+         <div class="box-content card white">
+
+
+             <hr />
+             <dl class="dl-horizontal">
+                 <dt>
+                     Fecha
+                 </dt>
+
+                 <dd>
+                     @Html.DisplayFor(model => model.fecha)
+                 </dd>
+
+                 <dt>
+                    Comentario
+                 </dt>
+
+                 <dd>
+                     @Html.DisplayFor(model => model.contenido)
+                 </dd>
+
+                 <dt>
+                    Proyecto
+                 </dt>
+
+                 <dd>
+                     @Html.DisplayFor(model => model.Proyecto.nombreProyecto)
+                 </dd>
+
+             </dl>
+         </div>
+     </div>
+ </div>
+ <p>
+    
+     @Html.ActionLink("Editar", "Edit", new { id = Model.idComentario }) |
+     @Html.ActionLink("Volver a la lista", "Index")
+ </p>

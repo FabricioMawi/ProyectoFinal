@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "CreateExcel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Subir lista de estudiantes</h3>
+<form method="post" enctype="multipart/form-data">
+    <input name="file" type="file" required />
+    <button type="submit">Subir lista</button>
+</form>
+
+<div>
+    @Html.ActionLink("Volver a la lista", "Index")
+</div>

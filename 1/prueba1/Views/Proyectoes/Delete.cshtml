@@ -1,0 +1,107 @@
+﻿@model prueba1.Models.Proyecto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>¿Está seguro que quiere eliminar este proyecto?</h3>
+<div>
+    <h4>Proyecto</h4>
+    <hr />
+    <div class="row small-spacingr" style="margin-left: 35vh;">
+        <div class="col-lg-10 col-xs-12">
+            <div class="box-content card white">
+                <dl class="dl-horizontal">
+                    <dt>
+                        Proyecto
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.nombreProyecto)
+                    </dd>
+
+                    <dt>
+                        Tecnologia
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.tecnologia)
+                    </dd>
+
+                    <dt>
+                        Estado
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.estadoProyecto)
+                    </dd>
+
+                    <dt>
+                        Fecha de inicio
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.fechaInicio)
+                    </dd>
+
+                    <dt>
+                        Fecha de finalización
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.fechaFinalizado)
+                    </dd>
+
+                    <dt>
+                        Curso
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Curso.nombreCurso)
+                    </dd>
+
+                    <dt>
+                        Empresa
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Empresa.nombreEmpresa)
+                    </dd>
+
+                    <dt>
+                        Grupo
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Grupo.idGrupo)
+                    </dd>
+
+                    <dt>
+                        Profesor
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Profesor.nombreProfesor)
+                    </dd>
+
+                </dl>
+                <div class="big mb-1" style="color: red;">
+                    @ViewBag.Error
+                </div>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Eliminar" class="btn btn-danger" style="background-color:navy" />
+                </div>
+                <div>
+                    @Html.ActionLink("Volver a la lista", "Index")
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
